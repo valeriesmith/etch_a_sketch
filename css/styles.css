@@ -1,0 +1,11 @@
+body {
+	background-color: lightblue;
+}
+
+#gridtable {
+	background-color: pink;
+}
+
+td {
+	border: black solid 1px;
+}
