@@ -10,23 +10,27 @@ function populateGrid(gridSize) {
 	}
 }
 
-$("form").on("submit", function(event) {
+function checkValidNum(sizeInput) {
 	var sizeInput = $("input:text").val();
 	var gridSizeRegex = /^\d*$/;
 	if (!gridSizeRegex.test(sizeInput)) {
 		alert("you must put in a number");
 		$("#gridsize").val("");
 		event.preventDefault();
+		// return false;
+		console.log("boo")
+		return
 	} else {
-		gridSize = sizeInput;
-		event.preventDefault();
-		populateGrid(gridSize)
+		populateGrid(sizeInput);
 	}	
+};
+
+$("form").on("submit", function(event) {
+	event.preventDefault();
+	checkValidNum($("input:text").val());
 });
 
-// console.log(gridSize)
 
-// $( document ).ready(populateGrid(4));
 
 
 
