@@ -5,7 +5,7 @@ function populateGrid(gridSize) {
 	for (i = 1; i <= gridSize; i ++) {
 		$("#gridtable").append("<tr id=row" + i + "></tr>");
 		for (j = 1; j <= gridSize; j ++) {
-			$("#row" + i).append("<td>" + i +"." + j + "</td>");
+			$("#row" + i).append("<td><div class=\"box\"></div></td>");
 		}
 	}
 }
@@ -17,7 +17,6 @@ function checkValidNum(sizeInput) {
 		alert("you must put in a number");
 		$("#gridsize").val("");
 		event.preventDefault();
-		// return false;
 		console.log("boo")
 		return
 	} else {
