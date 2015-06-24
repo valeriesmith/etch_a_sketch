@@ -2,10 +2,15 @@ body {
 	background-color: lightblue;
 }
 
+#container {
+}
+
 #gridtable {
+	/*display: none;*/
 	background-color: pink;
 }
 
 td {
 	border: black solid 1px;
+
 }
