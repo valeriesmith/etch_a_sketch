@@ -2,13 +2,19 @@ body {
 	background-color: lightblue;
 }
 
-#container {
-}
-
 #gridtable {
 	background-color: white;
 	border-collapse:collapse;
 	border: solid black 1px;
+	/*display: inline;*/
+}
+
+.initialgrid {
+	display: inline;
+}
+
+.modifygrid {
+	display: none;
 }
 
 .box {

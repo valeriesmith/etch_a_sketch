@@ -1,24 +1,38 @@
+function initialize() {
+	changeClass();
+	swapForm();
+	resetGrid();
+}
+
+
+$("form").on("submit", function(event) {
+	event.preventDefault();
+	if ($(".box").length != 0) {
+		console.log("already started") 
+	} else {
+		checkValidNum($("input:text").val());
+	};	
+});
+
 
 function populateGrid(gridSize) {
-	console.log("inside populate")
 	console.log(gridSize)
 	for (i = 1; i <= gridSize; i ++) {
 		$("#gridtable").append("<tr id=row" + i + "></tr>");
 		for (j = 1; j <= gridSize; j ++) {
-			$("#row" + i).append("<td><div class=\"box_inactive\"></div></td>");
+			$("#row" + i).append("<td><div class=\"box\"></div></td>");
 		}
 	}
-	changeClass();
+	initialize();
 }
 
 function checkValidNum(sizeInput) {
 	var sizeInput = $("input:text").val();
 	var gridSizeRegex = /^\d*$/;
-	if (!gridSizeRegex.test(sizeInput) || sizeInput == "")  {
-		alert("you must put in a number");
+	if (!gridSizeRegex.test(sizeInput) || sizeInput == "" || sizeInput < 1)  {
+		alert("you must put in a number greater than 0");
 		$("#gridsize").val("");
 		event.preventDefault();
-		console.log("boo")
 		return
 	} else {
 		populateGrid(sizeInput);
@@ -26,7 +40,7 @@ function checkValidNum(sizeInput) {
 };
 
 function changeClass() {
-	$(".box_inactive").on("mouseover", function() {
+	$(".box").on("mouseover", function() {
 		$(this).css("background-color", makeRandomColor());
 	});
 }
@@ -36,19 +50,21 @@ function makeRandomColor() {
 	return color
 }
 
-// TODO - function for swapping out the form once the grid is populated.
+function swapForm() {
+	$(".initialgrid").css("display","none");
+	$(".modifygrid").css("display","inline");
+}
 
-// TODO - make the colors change randomly on mouseover
 
-$("form").on("submit", function(event) {
-	event.preventDefault();
-	if ($(".box_inactive").length != 0) {
-		console.log("already started") 
-	} else {
-		checkValidNum($("input:text").val());
-	};	
-});
-
+function resetGrid() {
+	$("#modify").on("click", function(event) {
+		event.preventDefault();
+		$(".initialgrid").css("display","inline");
+		$(".modifygrid").css("display","none");
+		$("#gridsize").val("");	
+		$("#gridtable").children().remove();
+	});
+}
 
 
 

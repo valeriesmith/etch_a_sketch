@@ -9,21 +9,26 @@
 </head>
 
 <body>
-
-<div class="testdiv"></div>
-	<h2>Welcome to the Game</h2>
-	<p>Please select the size of your grid</p>
+	<h2>Rainbow Sketchpad</h2>
+	<!-- begin initial grid class -->
+	<div class="initialgrid">
+	<p>Please select the size of your sketchpad:</p>
 	<form>
 	<input id="gridsize" type="text" name="size">
 	<input id="create" type="submit" value="create grid">
 	</form>
+	</div>
+	<!-- end initial grid class -->
+	<!-- begin modify grid class -->
+	<div class="modifygrid">
+	<button id="modify">Modify Grid</button>
+	</div>
+	<!-- end modify grid class -->
+
 	<br>
 	<div id="container">
 	<table id="gridtable">
 	</table>
-		
-
-
 	</div>
 
 	<script src="js/scripts.js"></script>
