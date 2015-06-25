@@ -14,7 +14,7 @@ function populateGrid(gridSize) {
 function checkValidNum(sizeInput) {
 	var sizeInput = $("input:text").val();
 	var gridSizeRegex = /^\d*$/;
-	if (!gridSizeRegex.test(sizeInput) || $("#gridsize").val(""))  {
+	if (!gridSizeRegex.test(sizeInput) || sizeInput == "")  {
 		alert("you must put in a number");
 		$("#gridsize").val("");
 		event.preventDefault();
