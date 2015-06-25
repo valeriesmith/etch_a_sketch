@@ -11,19 +11,11 @@ body {
 	border: solid black 1px;
 }
 
-.box_inactive {
+.box {
 	height: 5px;
 	width: 5px;
 	padding: 0;
 	margin: 0;
-}
-
-.box_active {
-	height: 5px;
-	width: 5px;
-	padding: 0;
-	margin: 0;
-	background-color: black;
 }
 
 

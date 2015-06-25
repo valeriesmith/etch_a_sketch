@@ -27,8 +27,13 @@ function checkValidNum(sizeInput) {
 
 function changeClass() {
 	$(".box_inactive").on("mouseover", function() {
-		$(this).attr("class", "box_active");
+		$(this).css("background-color", makeRandomColor());
 	});
+}
+
+function makeRandomColor() {
+	color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+	return color
 }
 
 // TODO - function for swapping out the form once the grid is populated.
