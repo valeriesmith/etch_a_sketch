@@ -8,6 +8,11 @@ function populateGrid(gridSize) {
 			$("#row" + i).append("<td><div class=\"box_inactive\"></div></td>");
 		}
 	}
+	// remove create grid button
+	// $("#create").remove();
+	// add startover button
+	// $("<p>butthole</p>").after($("#gridsize"));
+	// $("<input id=\"create\" type=\"submit\" value=\"start over\">").after("<input id=\"gridsize\" type=\"text\" name=\"size\">")
 	changeClass();
 }
 
@@ -25,22 +30,23 @@ function checkValidNum(sizeInput) {
 	}	
 };
 
-// function changeClass() {
-// 	$(".box_inactive").click(function() {
-// 		console.log($(this.className));
-// 		$(this).attr("class", "box_active");
-// 	});
-// }
-
 function changeClass() {
 	$(".box_inactive").on("mouseover", function() {
 		$(this).attr("class", "box_active");
 	});
 }
 
+function eraseGrid() {
+	console.log("foo");
+}
+
 $("form").on("submit", function(event) {
 	event.preventDefault();
-	checkValidNum($("input:text").val());
+	if ($(".box_inactive").length != 0) {
+		console.log("already started") 
+	} else {
+		checkValidNum($("input:text").val());
+	};	
 });
 
 
